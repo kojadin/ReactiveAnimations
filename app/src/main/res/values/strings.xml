@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Reactive Animations</string>
+    <string name="animation_text">Animation</string>
+    <string name="reverse_animation_text">Reverse Animation</string>
+    <string name="stop_animation_text">Stop Animation</string>
+</resources>

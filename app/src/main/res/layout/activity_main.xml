@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="vm"
+            type="com.erevacation.reactiveanimations.ui.screens.main.MainViewModel" />
+    </data>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.erevacation.reactiveanimations.ui.screens.main.MainActivity">
+
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:id="@+id/animation_objects"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@color/colorAccent" />
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@color/colorAccent" />
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@color/colorAccent" />
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@color/colorAccent" />
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@color/colorAccent" />
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@color/colorAccent" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:paddingTop="30dp"
+            android:gravity="bottom"
+            android:layout_below="@id/animation_objects"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:onClick="@{vm::startAnimation}"
+                android:layout_margin="5dp"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:text="@string/animation_text"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"/>
+            <TextView
+                android:onClick="@{vm::revertAnimation}"
+                android:layout_margin="5dp"
+                android:background="@color/colorAccent"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:text="@string/reverse_animation_text"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"/>
+
+            <TextView
+                android:onClick="@{vm::stopAnimation}"
+                android:layout_margin="5dp"
+                android:background="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:text="@string/stop_animation_text"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>
