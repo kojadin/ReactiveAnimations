@@ -32,7 +32,7 @@ public class AnimatorObservableSource<T> implements ObservableSource {
     public AnimatorObservableSource() {
     }
 
-    public AnimatorObservableSource<T> setAnimatorList(List<ViewPropertyAnimator> viewPropertyAnimator) {
+    public AnimatorObservableSource setAnimatorList(List<ViewPropertyAnimator> viewPropertyAnimator) {
         this.mPropertyAnimators = viewPropertyAnimator;
         return this;
     }

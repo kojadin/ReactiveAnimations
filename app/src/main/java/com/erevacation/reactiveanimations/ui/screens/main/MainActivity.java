@@ -47,9 +47,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
 
         compositeDisposable.add(mAnimatorCompletableSource
                 .setAnimatorList(viewPropertyAnimators)
-//                .doOnNext(viewPropertyAnimator -> {
-//                    viewPropertyAnimator.alpha(0).setDuration(100).start();
-//                })
+                .doOnNext(viewPropertyAnimator -> {
+                    ((ViewPropertyAnimator)viewPropertyAnimator).rotation(90).setDuration(100).start();
+                })
                 .doOnComplete(() -> {
                     Toast.makeText(this, "All animation Done", Toast.LENGTH_SHORT).show();
                 })
@@ -72,6 +72,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
 
         compositeDisposable.add(mAnimatorCompletableSource
                 .setAnimatorList(viewPropertyAnimators)
+                .doOnNext(viewPropertyAnimator -> {
+                    ((ViewPropertyAnimator)viewPropertyAnimator).rotation(0).setDuration(100).start();
+                })
                 .doOnComplete(() -> {
                     Toast.makeText(this, "All revert animation Done", Toast.LENGTH_SHORT).show();
                 })
