@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.erevacation.reactiveanimations.R;
 import com.erevacation.reactiveanimations.databinding.ActivityMainBinding;
+import com.erevacation.reactiveanimations.rxjavaanimator.ObservableAnimator;
 import com.erevacation.reactiveanimations.rxjavaanimator.ViewAnimatorCreator;
 import com.erevacation.reactiveanimations.ui.base.BaseActivity;
 import com.erevacation.reactiveanimations.util.ViewUtils;
@@ -45,10 +46,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                             i * 150));
         }
 
-        compositeDisposable.add(mAnimatorCompletableSource
-                .setAnimatorList(viewPropertyAnimators)
+        compositeDisposable.add(ObservableAnimator.fromPropertyAnimator(viewPropertyAnimators)
                 .doOnNext(viewPropertyAnimator -> {
-                    ((ViewPropertyAnimator)viewPropertyAnimator).rotation(90).setDuration(100).start();
+                    viewPropertyAnimator.rotation(90).setDuration(100).start();
                 })
                 .doOnComplete(() -> {
                     Toast.makeText(this, "All animation Done", Toast.LENGTH_SHORT).show();
@@ -66,17 +66,16 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         int viewCount = binding.animationObjects.getChildCount();
         for (int i = viewCount - 1; i >= 0; i--) {
             viewPropertyAnimators.add(ViewAnimatorCreator
-                    .animateTranslate(binding.animationObjects.getChildAt(i), 0, (viewCount - 1 - i) * 150));
+                    .animateTranslate(binding.animationObjects.getChildAt(i), 0,
+                            (viewCount - 1 - i) * 150));
         }
 
-
-        compositeDisposable.add(mAnimatorCompletableSource
-                .setAnimatorList(viewPropertyAnimators)
+        compositeDisposable.add(ObservableAnimator.fromPropertyAnimator(viewPropertyAnimators)
                 .doOnNext(viewPropertyAnimator -> {
-                    ((ViewPropertyAnimator)viewPropertyAnimator).rotation(0).setDuration(100).start();
+                    viewPropertyAnimator.rotation(0).setDuration(100).start();
                 })
                 .doOnComplete(() -> {
-                    Toast.makeText(this, "All revert animation Done", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "All animation Done", Toast.LENGTH_SHORT).show();
                 })
                 .subscribe());
     }
@@ -85,8 +84,6 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
     public void stopAnimation(View view) {
         // clear observable
         compositeDisposable.clear();
-        // clear all animation
-        mAnimatorCompletableSource.clear();
         Toast.makeText(this, "All animation Stoped", Toast.LENGTH_SHORT).show();
     }
 }

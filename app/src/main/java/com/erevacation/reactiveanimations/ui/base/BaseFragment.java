@@ -23,11 +23,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.CallSuper;
 import android.support.annotation.LayoutRes;
-import android.support.annotation.MenuRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,8 +36,6 @@ import com.erevacation.reactiveanimations.injection.components.DaggerFragmentCom
 import com.erevacation.reactiveanimations.injection.components.FragmentComponent;
 import com.erevacation.reactiveanimations.injection.modules.FragmentModule;
 import com.erevacation.reactiveanimations.rxbus.RxEventBus;
-import com.erevacation.reactiveanimations.rxjavaanimator.AnimatorObservableSource;
-import com.erevacation.reactiveanimations.ui.base.navigator.Navigator;
 import com.erevacation.reactiveanimations.ui.base.view.MvvmView;
 import com.erevacation.reactiveanimations.ui.base.viewmodel.MvvmViewModel;
 
@@ -80,9 +76,6 @@ public abstract class BaseFragment<B extends ViewDataBinding, V extends MvvmView
 
     @Inject
     protected Resources resources;
-
-    @Inject
-    protected AnimatorObservableSource mAnimatorCompletableSource;
 
     private FragmentComponent mFragmentComponent;
 
@@ -147,7 +140,6 @@ public abstract class BaseFragment<B extends ViewDataBinding, V extends MvvmView
 
         binding = null;
         viewModel = null;
-        mAnimatorCompletableSource = null;
         handler.removeCallbacksAndMessages(null);
     }
 

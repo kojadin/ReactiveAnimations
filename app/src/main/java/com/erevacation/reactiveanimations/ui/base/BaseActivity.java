@@ -23,13 +23,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.CallSuper;
 import android.support.annotation.LayoutRes;
-import android.support.annotation.MenuRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.ViewPropertyAnimator;
 
 import com.erevacation.reactiveanimations.BR;
 import com.erevacation.reactiveanimations.ReactiveAnimationApp;
@@ -37,16 +33,13 @@ import com.erevacation.reactiveanimations.injection.components.ActivityComponent
 import com.erevacation.reactiveanimations.injection.components.DaggerActivityComponent;
 import com.erevacation.reactiveanimations.injection.modules.ActivityModule;
 import com.erevacation.reactiveanimations.rxbus.RxEventBus;
-import com.erevacation.reactiveanimations.rxjavaanimator.AnimatorObservableSource;
 import com.erevacation.reactiveanimations.ui.base.navigator.Navigator;
 import com.erevacation.reactiveanimations.ui.base.view.MvvmView;
 import com.erevacation.reactiveanimations.ui.base.viewmodel.MvvmViewModel;
 
 import javax.inject.Inject;
-import javax.inject.Provider;
 
 import io.reactivex.disposables.CompositeDisposable;
-import timber.log.Timber;
 
 /* Base class for Activities when using a view model with data binding.
  * This class provides the binding and the view model to the subclass. The
@@ -81,9 +74,6 @@ public abstract class BaseActivity<B extends ViewDataBinding, V extends MvvmView
 
     @Inject
     protected FragmentManager fragmentManager;
-
-    @Inject
-    protected AnimatorObservableSource mAnimatorCompletableSource;
 
     @Inject
     protected Resources resources;
@@ -161,6 +151,7 @@ public abstract class BaseActivity<B extends ViewDataBinding, V extends MvvmView
             viewModel.detachView();
         }
 
+        compositeDisposable.clear();
         binding = null;
         viewModel = null;
         mActivityComponent = null;

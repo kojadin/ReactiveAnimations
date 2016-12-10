@@ -23,7 +23,6 @@ import com.erevacation.reactiveanimations.injection.modules.AppModule;
 import com.erevacation.reactiveanimations.injection.qualifier.AppContext;
 import com.erevacation.reactiveanimations.injection.scopes.PerApplication;
 import com.erevacation.reactiveanimations.rxbus.RxEventBus;
-import com.erevacation.reactiveanimations.rxjavaanimator.AnimatorObservableSource;
 
 import dagger.Component;
 
@@ -37,6 +36,4 @@ public interface AppComponent {
     Resources resources();
 
     RxEventBus rxEventBus();
-
-    AnimatorObservableSource animatorCompletableSource();
 }

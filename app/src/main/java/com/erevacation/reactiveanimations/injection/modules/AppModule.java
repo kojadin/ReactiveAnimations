@@ -23,7 +23,6 @@ import android.content.res.Resources;
 import com.erevacation.reactiveanimations.injection.qualifier.AppContext;
 import com.erevacation.reactiveanimations.injection.scopes.PerApplication;
 import com.erevacation.reactiveanimations.rxbus.RxEventBus;
-import com.erevacation.reactiveanimations.rxjavaanimator.AnimatorObservableSource;
 
 import dagger.Module;
 import dagger.Provides;
@@ -45,12 +44,6 @@ public class AppModule {
     @PerApplication
     public static RxEventBus provideRxEventBus() {
         return new RxEventBus();
-    }
-
-    @Provides
-    @PerApplication
-    public static AnimatorObservableSource provideAnimatorCompletableSource() {
-        return new AnimatorObservableSource();
     }
 
     @Provides
