@@ -1,3 +1,21 @@
+/*
+ *
+ *  * Copyright 2017 Kojadin
+ *  *
+ *  * Licensed under the Apache License, Version 2.0 (the "License");
+ *  * you may not use this file except in compliance with the License.
+ *  * You may obtain a copy of the License at
+ *  *
+ *  *        http://www.apache.org/licenses/LICENSE-2.0
+ *  *
+ *  * Unless required by applicable law or agreed to in writing, software
+ *  * distributed under the License is distributed on an "AS IS" BASIS,
+ *  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  * See the License for the specific language governing permissions and
+ *  * limitations under the License.
+ *
+ */
+
 package com.erevacation.reactiveanimations.ui.base.viewmodel;
 
 import android.content.Context;
@@ -22,7 +40,8 @@ import io.reactivex.disposables.CompositeDisposable;
  * Padawan David Lleixà on 29/11/16.
  */
 
-public abstract class BaseDialogViewModel<V extends MvvmView> extends BaseObservable implements MvvmViewModel<V> {
+public abstract class BaseDialogViewModel<V extends MvvmView> extends BaseObservable implements
+        MvvmViewModel<V> {
 
     protected final CompositeDisposable compositeDisposable = new CompositeDisposable();
 
@@ -50,7 +69,8 @@ public abstract class BaseDialogViewModel<V extends MvvmView> extends BaseObserv
     public void attachView(@NonNull V view, @Nullable Bundle savedInstanceState) {
         mView = view;
 
-        /** Always trigger {@link MvvmViewModel#restoreInstanceState(Bundle)} in order to take advantage of
+        /** Always trigger {@link MvvmViewModel#restoreInstanceState(Bundle)} in order to take
+         * advantage of
          * our way to restore states through {@link android.content.SharedPreferences} **/
         restoreInstanceState(savedInstanceState);
 

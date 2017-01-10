@@ -1,17 +1,19 @@
 /*
- * Copyright 2016 Bonagora, Inc.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ *  * Copyright 2017 Kojadin
+ *  *
+ *  * Licensed under the Apache License, Version 2.0 (the "License");
+ *  * you may not use this file except in compliance with the License.
+ *  * You may obtain a copy of the License at
+ *  *
+ *  *        http://www.apache.org/licenses/LICENSE-2.0
+ *  *
+ *  * Unless required by applicable law or agreed to in writing, software
+ *  * distributed under the License is distributed on an "AS IS" BASIS,
+ *  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  * See the License for the specific language governing permissions and
+ *  * limitations under the License.
  *
- *        http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
 
 package com.erevacation.reactiveanimations.ui.base.navigator;
@@ -33,7 +35,8 @@ public abstract class BaseNavigator implements Navigator {
 
     private FragmentTransactionAnimations mFragmentAnimations = new FragmentTransactionAnimations();
 
-    private FragmentTransactionAnimations mFragmentBackStackAnimations = new FragmentTransactionAnimations();
+    private FragmentTransactionAnimations mFragmentBackStackAnimations =
+            new FragmentTransactionAnimations();
 
     private ActivityTransitionAnimations mActivityAnimations = new ActivityTransitionAnimations();
 
@@ -82,7 +85,8 @@ public abstract class BaseNavigator implements Navigator {
     }
 
     @Override
-    public final void startActivity(@NonNull Class<? extends Activity> activityClass, Parcelable args) {
+    public final void startActivity(@NonNull Class<? extends Activity> activityClass,
+            Parcelable args) {
         Activity activity = getActivity();
         Intent intent = new Intent(activity, activityClass);
         if (args != null) {
@@ -93,72 +97,92 @@ public abstract class BaseNavigator implements Navigator {
     }
 
     @Override
-    public final void replaceFragment(@IdRes int containerId, @NonNull Fragment fragment, Bundle args) {
-        replaceFragmentInternal(getActivity().getSupportFragmentManager(), containerId, fragment, null, args, false,
+    public final void replaceFragment(@IdRes int containerId, @NonNull Fragment fragment,
+            Bundle args) {
+        replaceFragmentInternal(getActivity().getSupportFragmentManager(), containerId, fragment,
+                null, args, false,
                 null);
     }
 
     @Override
-    public final void replaceFragment(@IdRes int containerId, @NonNull Fragment fragment, @NonNull String fragmentTag,
+    public final void replaceFragment(@IdRes int containerId, @NonNull Fragment fragment,
+            @NonNull String fragmentTag,
             Bundle args) {
-        replaceFragmentInternal(getActivity().getSupportFragmentManager(), containerId, fragment, fragmentTag, args,
+        replaceFragmentInternal(getActivity().getSupportFragmentManager(), containerId, fragment,
+                fragmentTag, args,
                 false, null);
     }
 
     @Override
-    public final void replaceFragmentAndAddToBackStack(@IdRes int containerId, @NonNull Fragment fragment, Bundle args,
+    public final void replaceFragmentAndAddToBackStack(@IdRes int containerId,
+            @NonNull Fragment fragment, Bundle args,
             String backStackTag) {
-        replaceFragmentInternal(getActivity().getSupportFragmentManager(), containerId, fragment, null, args, true,
+        replaceFragmentInternal(getActivity().getSupportFragmentManager(), containerId, fragment,
+                null, args, true,
                 backStackTag);
     }
 
     @Override
-    public final void replaceFragmentAndAddToBackStack(@IdRes int containerId, @NonNull Fragment fragment,
+    public final void replaceFragmentAndAddToBackStack(@IdRes int containerId,
+            @NonNull Fragment fragment,
             @NonNull String fragmentTag, Bundle args, String backStackTag) {
-        replaceFragmentInternal(getActivity().getSupportFragmentManager(), containerId, fragment, fragmentTag, args,
+        replaceFragmentInternal(getActivity().getSupportFragmentManager(), containerId, fragment,
+                fragmentTag, args,
                 true, backStackTag);
     }
 
     @Override
-    public final void replaceFragmentAndAddToBackStack(@IdRes int containerId, @NonNull Fragment fragment,
+    public final void replaceFragmentAndAddToBackStack(@IdRes int containerId,
+            @NonNull Fragment fragment,
             @NonNull String fragmentTag, Bundle args) {
-        replaceFragmentInternal(getActivity().getSupportFragmentManager(), containerId, fragment, fragmentTag, args,
+        replaceFragmentInternal(getActivity().getSupportFragmentManager(), containerId, fragment,
+                fragmentTag, args,
                 true, null);
     }
 
     @Override
-    public final void replaceFragmentAndAddToBackStack(@IdRes int containerId, @NonNull Fragment fragment,
+    public final void replaceFragmentAndAddToBackStack(@IdRes int containerId,
+            @NonNull Fragment fragment,
             @NonNull String fragmentTag, Bundle args, View sharedView, String transitionName) {
-        replaceFragmentInternalWithSharedElement(getActivity().getSupportFragmentManager(), containerId, fragment, fragmentTag, args,
+        replaceFragmentInternalWithSharedElement(getActivity().getSupportFragmentManager(),
+                containerId, fragment, fragmentTag, args,
                 true, null, sharedView, transitionName);
     }
 
     @Override
-    public final void replaceChildFragment(@IdRes int containerId, @NonNull Fragment fragment, Bundle args) {
-        replaceFragmentInternal(getChildFragmentManager(), containerId, fragment, null, args, false, null);
+    public final void replaceChildFragment(@IdRes int containerId, @NonNull Fragment fragment,
+            Bundle args) {
+        replaceFragmentInternal(getChildFragmentManager(), containerId, fragment, null, args, false,
+                null);
     }
 
     @Override
     public final void replaceChildFragment(@IdRes int containerId, @NonNull Fragment fragment,
             @NonNull String fragmentTag, Bundle args) {
-        replaceFragmentInternal(getChildFragmentManager(), containerId, fragment, fragmentTag, args, false, null);
+        replaceFragmentInternal(getChildFragmentManager(), containerId, fragment, fragmentTag, args,
+                false, null);
     }
 
     @Override
-    public final void replaceChildFragmentAndAddToBackStack(@IdRes int containerId, @NonNull Fragment fragment,
+    public final void replaceChildFragmentAndAddToBackStack(@IdRes int containerId,
+            @NonNull Fragment fragment,
             Bundle args, String backStackTag) {
-        replaceFragmentInternal(getChildFragmentManager(), containerId, fragment, null, args, true, backStackTag);
-    }
-
-    @Override
-    public final void replaceChildFragmentAndAddToBackStack(@IdRes int containerId, @NonNull Fragment fragment,
-            @NonNull String fragmentTag, Bundle args, String backStackTag) {
-        replaceFragmentInternal(getChildFragmentManager(), containerId, fragment, fragmentTag, args, true,
+        replaceFragmentInternal(getChildFragmentManager(), containerId, fragment, null, args, true,
                 backStackTag);
     }
 
     @Override
-    public final void replaceChildFragmentAndAddToBackStack(@IdRes int containerId, @NonNull Fragment fragment,
+    public final void replaceChildFragmentAndAddToBackStack(@IdRes int containerId,
+            @NonNull Fragment fragment,
+            @NonNull String fragmentTag, Bundle args, String backStackTag) {
+        replaceFragmentInternal(getChildFragmentManager(), containerId, fragment, fragmentTag, args,
+                true,
+                backStackTag);
+    }
+
+    @Override
+    public final void replaceChildFragmentAndAddToBackStack(@IdRes int containerId,
+            @NonNull Fragment fragment,
             @NonNull String fragmentTag, Bundle args) {
         replaceFragmentInternal(getChildFragmentManager(), containerId, fragment, fragmentTag, args,
                 true, null);
@@ -170,7 +194,8 @@ public abstract class BaseNavigator implements Navigator {
     }
 
     @Override
-    public final void setFragmentCustomAnimations(@AnimRes int enter, @AnimRes int exit, @AnimRes int popEnter,
+    public final void setFragmentCustomAnimations(@AnimRes int enter, @AnimRes int exit,
+            @AnimRes int popEnter,
             @AnimRes int popExit) {
         mFragmentAnimations.setAnimations(enter, exit, popEnter, popExit);
     }
@@ -181,7 +206,8 @@ public abstract class BaseNavigator implements Navigator {
     }
 
     @Override
-    public final void setFragmentBackStackCustomAnimations(@AnimRes int enter, @AnimRes int exit, @AnimRes int popEnter,
+    public final void setFragmentBackStackCustomAnimations(@AnimRes int enter, @AnimRes int exit,
+            @AnimRes int popEnter,
             @AnimRes int popExit) {
         mFragmentBackStackAnimations.setAnimations(enter, exit, popEnter, popExit);
     }
@@ -191,7 +217,8 @@ public abstract class BaseNavigator implements Navigator {
         mActivityAnimations.setAnimations(enter, exit);
     }
 
-    private void replaceFragmentInternal(FragmentManager fm, @IdRes int containerId, Fragment fragment,
+    private void replaceFragmentInternal(FragmentManager fm, @IdRes int containerId,
+            Fragment fragment,
             String fragmentTag, Bundle args, boolean addToBackStack, String backStackTag) {
 
         if (args != null) {
@@ -216,8 +243,10 @@ public abstract class BaseNavigator implements Navigator {
         }
     }
 
-    private void replaceFragmentInternalWithSharedElement(FragmentManager fm, @IdRes int containerId, Fragment fragment,
-            String fragmentTag, Bundle args, boolean addToBackStack, String backStackTag, View sharedElement, String transitionName) {
+    private void replaceFragmentInternalWithSharedElement(FragmentManager fm,
+            @IdRes int containerId, Fragment fragment,
+            String fragmentTag, Bundle args, boolean addToBackStack, String backStackTag,
+            View sharedElement, String transitionName) {
 
         if (args != null) {
             fragment.setArguments(args);

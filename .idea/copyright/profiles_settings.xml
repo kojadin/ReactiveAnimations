@@ -1,3 +1,7 @@
 <component name="CopyrightManager">
-  <settings default="" />
+  <settings default="Kojadin">
+    <module2copyright>
+      <element module="All" copyright="Kojadin" />
+    </module2copyright>
+  </settings>
 </component>

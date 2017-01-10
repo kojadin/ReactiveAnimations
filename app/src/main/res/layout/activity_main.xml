@@ -1,10 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ /*
+  ~  * Copyright 2017 Kojadin
+  ~  *
+  ~  * Licensed under the Apache License, Version 2.0 (the "License");
+  ~  * you may not use this file except in compliance with the License.
+  ~  * You may obtain a copy of the License at
+  ~  *
+  ~  *        http://www.apache.org/licenses/LICENSE-2.0
+  ~  *
+  ~  * Unless required by applicable law or agreed to in writing, software
+  ~  * distributed under the License is distributed on an "AS IS" BASIS,
+  ~  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~  * See the License for the specific language governing permissions and
+  ~  * limitations under the License.
+  ~  */
+  -->
+
 <layout>
+
     <data>
+
         <variable
             name="vm"
             type="com.erevacation.reactiveanimations.ui.screens.main.MainViewModel" />
     </data>
+
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/activity_main"
@@ -21,69 +41,87 @@
             android:orientation="horizontal"
             android:id="@+id/animation_objects"
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="100dp">
+
             <FrameLayout
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:background="@color/colorAccent">
+
                 <TextView
                     android:gravity="center"
                     android:textColor="@color/green"
+                    android:textSize="22sp"
                     android:text="@string/icon_go"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent" />
             </FrameLayout>
+
             <FrameLayout
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:background="@color/colorAccent">
+
                 <TextView
                     android:gravity="center"
                     android:textColor="@color/green"
+                    android:textSize="22sp"
                     android:text="@string/icon_go"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent" />
             </FrameLayout>
+
             <FrameLayout
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:background="@color/colorAccent">
+
                 <TextView
                     android:gravity="center"
                     android:textColor="@color/green"
+                    android:textSize="22sp"
                     android:text="@string/icon_go"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent" />
             </FrameLayout>
+
             <FrameLayout
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:background="@color/colorAccent">
+
                 <TextView
                     android:gravity="center"
                     android:textColor="@color/green"
+                    android:textSize="22sp"
                     android:text="@string/icon_go"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent" />
             </FrameLayout>
+
             <FrameLayout
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:background="@color/colorAccent">
+
                 <TextView
                     android:gravity="center"
                     android:textColor="@color/green"
+                    android:textSize="22sp"
                     android:text="@string/icon_go"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent" />
             </FrameLayout>
+
             <FrameLayout
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:background="@color/colorAccent">
+
                 <TextView
                     android:gravity="center"
                     android:textColor="@color/green"
+                    android:textSize="22sp"
                     android:text="@string/icon_go"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent" />
@@ -97,6 +135,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <TextView
                 android:onClick="@{vm::startAnimation}"
                 android:layout_margin="5dp"
@@ -106,7 +145,8 @@
                 android:text="@string/animation_text"
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="40dp"/>
+                android:layout_height="40dp" />
+
             <TextView
                 android:onClick="@{vm::revertAnimation}"
                 android:layout_margin="5dp"
@@ -116,7 +156,7 @@
                 android:text="@string/reverse_animation_text"
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="40dp"/>
+                android:layout_height="40dp" />
 
             <TextView
                 android:onClick="@{vm::stopAnimation}"
@@ -127,7 +167,7 @@
                 android:textColor="@color/white"
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="40dp"/>
+                android:layout_height="40dp" />
 
         </LinearLayout>
     </RelativeLayout>
